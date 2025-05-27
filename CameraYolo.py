@@ -3,7 +3,7 @@ from ultralytics import YOLO  # YOLOv8
 
 model = YOLO('yolov8n.pt')  # 초경량 모델 (YOLOv8n)
 
-cap = cv2.VideoCapture(0)  # Pi 카메라
+cap = cv2.VideoCapture(10)  # Pi 카메라
 
 while True:
     ret, frame = cap.read()
