@@ -13,7 +13,29 @@
 
 2. 터미널 2개 활성화<br/>
     2-1) 라즈베리파이의 카메라 영상을 실시간으로 녹화하는 명령어<br/>
-         libcamera-vid -t 0 --width 1280 --height 720 --framerate 60 -o test.h264
+         libcamera-vid -t 0 --width 1280 --height 720 --framerate 60 -o test.h264<br/>
     2-2) Yolo 활성화<br/>
          python (프로그램명)
 
+# 🎯 Raspberry Pi 5 + YOLO 실시간 객체 감지
+
+라즈베리파이5에서 Pi Camera를 통해 실시간 객체(예: 사람) 감지를 YOLO 모델로 실행하는 프로젝트입니다.
+
+---
+
+## 📦 설치 환경
+
+- Raspberry Pi OS 64bit
+- Python 3.9+
+- Pi Camera (IMX219, HQ 등)
+- torch, opencv-python, ultralytics
+
+---
+
+## ✅ **1. Python 가상환경 생성 및 실행**
+
+```bash
+sudo apt update
+sudo apt install python3-venv -y
+python3 -m venv yolo-env
+source yolo-env/bin/activate
