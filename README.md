@@ -23,7 +23,7 @@ source yolo-env/bin/activate
 
 ## 2. 터미널 2개로 실행하기
 
-#### 3-1️⃣ Pi Camera 영상 녹화 (터미널 #1)
+##### 3-1️⃣ Pi Camera 영상 녹화 (터미널 #1)
 ```bash
 libcamera-vid -t 0 --width 1280 --height 720 --framerate 60 -o test.h264
 ```
@@ -37,7 +37,7 @@ libcamera-vid -t 0 --width 1280 --height 720 --framerate 60 -o test.h264
 
 📹 실시간으로 Pi Camera 영상을 H.264 포맷으로 저장합니다.
 
-#### 3-2️⃣ YOLO 실행 (터미널 #2)
+##### 3-2️⃣ YOLO 실행 (터미널 #2)
 
 ```bash
 # 같은 디렉터리에 CameraYolo.py가 있어야 합니다
