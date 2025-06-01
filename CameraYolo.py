@@ -7,7 +7,7 @@ import time
 model = YOLO('yolov8n.pt')
 
 # 1) 카메라 열기 (해상도를 낮춰서 줌인 현상 완화)
-cap = cv2.VideoCapture("/dev/video10")
+cap = cv2.VideoCapture(10)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
