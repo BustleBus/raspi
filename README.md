@@ -5,15 +5,16 @@
 
 카메라 키기
 # 1) v4l2loopback 모듈 로드 시, 원하는 해상도로 video10 디바이스 생성 (예: 1280x720)
+sudo modprobe -r v4l2loopback
 sudo modprobe v4l2loopback video_nr=10 card_label="VirtualCam" video_size=1280x720
 
 # 2) libcamera-vid로 1280×720 MJPEG 스트림 출력
+
 libcamera-vid -t 0 \
   --width 1280 --height 720 --framerate 30 \
   --codec mjpeg --output - | \
-# 3) ffmpeg에서 형식만 변환해 그대로 /dev/video10(1280×720)으로 전달
 ffmpeg -f mjpeg -i - -vf format=yuv420p -f v4l2 /dev/video10
----
+
 
 ## 1. Python 가상환경 실행
 
