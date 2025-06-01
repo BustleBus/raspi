@@ -11,7 +11,7 @@ cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
 # POST 요청을 보낼 서버 주소
-POST_URL = 'http://takaoracle2.duckdns.org:5000/api/v1/person-count'
+POST_URL = 'https://bustlebus.duckdns.org/api/v1/person-count'
 
 while True:
     ret, frame = cap.read()
