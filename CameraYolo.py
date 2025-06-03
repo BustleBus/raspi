@@ -20,7 +20,7 @@ POST_URL = 'https://bustlebus.duckdns.org/api/v1/person-count'
 
 # 5초마다 한 번씩 전송하도록 타이머 초기화
 last_post_time = 0
-POST_INTERVAL = 5  # 초 단위
+POST_INTERVAL = 3  # 초 단위
 
 while True:
     ret, frame = cap.read()
