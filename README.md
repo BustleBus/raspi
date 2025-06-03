@@ -3,8 +3,12 @@
 라즈베리파이 5와 Pi Camera를 이용해 **YOLO**로 실시간 객체(예: 사람) 감지를 수행하는 프로젝트입니다.  
 이 문서는 **설치 → 가상환경 → 카메라 설정 → YOLO 실행** 순서로 필요한 모든 절차를 안내합니다.
 
----
 
+# 카메라 키기
+
+sudo modprobe v4l2loopback video_nr=10 card_label="VirtualCam" exclusive_caps=1
+
+libcamera-vid -t 0 --width 1280 --height 720 --framerate 30 --codec mjpeg --output - | ffmpeg -f mjpeg -i - -vf format=yuv420p -f v4l2 /dev/video10
 ## 1. Python 가상환경 실행
 
 ```bash
