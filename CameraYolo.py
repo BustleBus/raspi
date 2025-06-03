@@ -18,6 +18,10 @@ frame_count = 0
 # POST 요청을 보낼 서버 주소
 POST_URL = 'https://bustlebus.duckdns.org/api/v1/person-count'
 
+# 5초마다 한 번씩 전송하도록 타이머 초기화
+last_post_time = 0
+POST_INTERVAL = 5  # 초 단위
+
 while True:
     ret, frame = cap.read()
     if not ret:
@@ -53,13 +57,16 @@ while True:
     cv2.putText(frame, f"People: {person_count}", (10, 30),
                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
-    # ✅ 서버로 POST 요청 (타임아웃: 1초)
-    try:
-        payload = {'person_count': person_count}
-        headers = {'Content-Type': 'application/json'}
-        requests.post(POST_URL, json=payload, headers=headers, timeout=1)
-    except requests.exceptions.RequestException as e:
-        print(f"[!] POST Error: {e}")
+    # ✅ 5초 간격으로 POST 요청
+    current_time = time.time()
+    if current_time - last_post_time >= POST_INTERVAL:
+        try:
+            payload = {'person_count': person_count}
+            headers = {'Content-Type': 'application/json'}
+            requests.post(POST_URL, json=payload, headers=headers, timeout=1)
+            last_post_time = current_time
+        except requests.exceptions.RequestException as e:
+            print(f"[!] POST Error: {e}")
 
     # 3) 디스플레이용 창 크기 축소 (예: 640×480 → 480×360)
     disp = cv2.resize(frame, (480, 360))
