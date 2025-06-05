@@ -4,7 +4,7 @@
 이 문서는 **설치 → 가상환경 → 카메라 설정 → YOLO 실행** 순서로 필요한 모든 절차를 안내합니다.
 
 
-# 카메라 키기
+## 카메라 키기
 ```bash
 sudo modprobe v4l2loopback video_nr=10 card_label="VirtualCam" exclusive_caps=1
 
