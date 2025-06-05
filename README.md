@@ -5,10 +5,12 @@
 
 
 # 카메라 키기
-
+```bash
 sudo modprobe v4l2loopback video_nr=10 card_label="VirtualCam" exclusive_caps=1
 
 libcamera-vid -t 0 --width 1280 --height 720 --framerate 30 --codec mjpeg --output - | ffmpeg -f mjpeg -i - -vf format=yuv420p -f v4l2 /dev/video10
+```
+
 ## 1. Python 가상환경 실행
 
 ```bash
